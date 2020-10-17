@@ -2,32 +2,31 @@
   <div class="storegrid">
     <transition-group name="items" tag="section" class="content">
       <div v-for="item in filteredprice" :key="item.id" class="item">
-        <div class="img-contain">
+          <div class = "card">
+          <div class="img-contain">
+            <NuxtLink :to="`product/${item.id}`">
+              <img :src="`/products/${item.img}`" />
+            </NuxtLink>
+          </div>
+          <star-rating
+            :rating="item.starrating"
+            active-color="#000"
+            :star-size="15"
+            :show-rating="false"
+            style="margin: 5px 0"
+          ></star-rating>
+          <h3>{{ item.name }}</h3>
+          <h4 class="price">{{ 'Rs. ' + item.price  }}</h4>
           <NuxtLink :to="`product/${item.id}`">
-            <img :src="`/products/${item.img}`" />
-          </NuxtLink>
-        </div>
-        <star-rating
-          :rating="item.starrating"
-          active-color="#000"
-          :star-size="15"
-          :show-rating="false"
-          style="margin: 5px 0"
-        ></star-rating>
-        <h3>{{ item.name }}</h3>
-        <h4 class="price">{{ item.price | dollar }}</h4>
-        <NuxtLink :to="`product/${item.id}`">
-          <button class="multi-item">View Item ></button>
-        </NuxtLink>
+            <button class="multi-item">View Item ></button>
+          </NuxtLink></div>
       </div>
     </transition-group>
     <aside>
-      <h3>Special Sale</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam libero iusto nemo laboriosam perferendis voluptas ullam officiis, quibusdam quas quam eveniet est fugit delectus corporis incidunt nam esse suscipit itaque?</p>
-      <h3>Filter by Price:</h3>
+       <h3>Filter by Price:</h3>
       <p style="margin-top: 5px">
         Max Price
-        <strong>${{ pricerange }}</strong>
+        <strong>Rs. {{ pricerange }}</strong>
       </p>
       <input
         class="slider"
@@ -38,8 +37,8 @@
         :max="max"
         step="0.1"
       />
-      <span class="min">${{ min }}</span>
-      <span class="max">${{ max }}</span>
+      <span class="min">Rs. {{ min }}</span>
+      <span class="max">Rs. {{ max }}</span>
     </aside>
   </div>
 </template>
@@ -87,6 +86,10 @@ export default {
   }
 }
 
+.img-contain :hover{
+  box-shadow: gray;
+}
+
 .item {
   max-height: 500px;
   display: flex;
@@ -105,4 +108,11 @@ aside {
   display: inline-block;
   float: right;
 }
+
+.card :hover{
+  box-shadow: 0 6px 26px rgba(0, 0, 0, 0.1);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
 </style>

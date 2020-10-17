@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h1>Skyline Ivy</h1>
+    <h1>JAC Shopping</h1>
     <nav>
       <ul>
         <li>
@@ -44,6 +44,7 @@ header {
 }
 
 nav {
+  background-color: #D5DBDB;
   display: flex;
   width: 80vw;
   margin-top: 30px;
@@ -65,8 +66,10 @@ nav {
       position: relative;
       a {
         color: black;
+        
         &:hover {
-          color: #c14103;
+          color: white;
+          background-color: gray;
         }
       }
     }

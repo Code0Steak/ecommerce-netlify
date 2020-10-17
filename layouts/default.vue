@@ -1,9 +1,10 @@
 <template>
   <div>
     <app-nav />
+   
     <main>
       <nuxt />
-    </main>
+    </main> 
     <app-footer />
   </div>
 </template>

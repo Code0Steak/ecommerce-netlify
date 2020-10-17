@@ -16,7 +16,7 @@
             <h5 v-if="item.size" class="product-size">Size: {{ item.size }}</h5>
           </td>
           <td>
-            <h4 class="price">{{ item.price | dollar }}</h4>
+            <h4 class="price">{{ 'Rs. ' + item.price  }}</h4>
           </td>
           <td>
             <button @click="removeOneFromCart(item)" class="quantity-adjust">
@@ -25,7 +25,7 @@
             <strong> {{ item.quantity }}</strong>
             <button @click="addToCart(item)" class="quantity-adjust">+</button>
           </td>
-          <td>{{ (item.quantity * item.price) | dollar }}</td>
+          <td>{{ 'Rs. ' +  (item.quantity * item.price)  }}</td>
           <td>
             <button @click="removeAllFromCart(item)" class="delete-product">
               x
@@ -46,10 +46,10 @@
           </div>
           <div class="num">
             <p>
-              <strong>{{ cartTotal | dollar }}</strong>
+              <strong>{{ 'Rs. '+  Math.round((cartTotal + Number.EPSILON) * 100) / 100 }}</strong>
             </p>
             <p>Free Shipping</p>
-            <p class="golden">{{ cartTotal | dollar }}</p>
+            <p class="golden">{{'Rs. '+ Math.round((cartTotal + Number.EPSILON) * 100) / 100  }}</p>
           </div>
         </div>
       </section>
