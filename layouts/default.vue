@@ -19,7 +19,9 @@ export default {
     AppNav
   }
 };
+
 </script>
+
 
 <style scoped>
 body {
@@ -58,3 +60,4 @@ main {
   }
 }
 </style>
+

@@ -15,19 +15,7 @@
       <li>LinkedIn</li>
     </ul>
     <ul>
-     <div class="container">
-       Ask the chatbot for help
-        <div id="chatbot">
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-        </div>
-        <div id="chatbot-corner"></div>
-        <div id="antenna">
-          <div id="beam"></div>
-          <div id="beam-pulsar"></div>
-        </div>
-    </div>
+      
     </ul>
     
   </section>
@@ -41,6 +29,8 @@ export default {};
 
 <style lang="scss" scoped>
 
+
+
 .container {
   margin: auto;
   position: relative;
@@ -49,6 +39,8 @@ export default {};
   width: 250px;
   animation: up-down 7.5s infinite ease-in-out;
 }
+
+
 .container #chatbot {
   margin: auto;
   position: absolute;

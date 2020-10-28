@@ -12,10 +12,9 @@
           :show-rating="false"
           active-color="#000"
           style="margin: 5px 0"
-        ></star-rating> 🔉
+        ></star-rating> <span class = "greetClass" @click = "greet(product.description)">🔉</span>
         <h4 class="price">{{ 'Rs. ' + product.price  }}</h4>
         <p>{{ product.description }}</p>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto velit dolores repudiandae animi quidem, eveniet quod dolor facilis dicta eligendi ullam error. Assumenda in fugiat natus enim similique nam itaque.</p>
         <div class="product-options">
           <div class="quantity">
             <button class="update-num" @click="quantity > 0 ? quantity-- : quantity = 0">-</button>
@@ -53,7 +52,6 @@
         style="margin: 5px 0"
       ></star-rating>
       <p>{{ product.review }}</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum iusto placeat consequatur voluptas sit mollitia ratione autem, atque sequi odio laborum, recusandae quia distinctio voluptatibus sint, quae aliquid possimus exercitationem.</p>
     </div>
     <app-featured-products />
   </div>
@@ -85,6 +83,10 @@ export default {
     }
   },
   methods: {
+    greet(descr){
+      let msg =  new SpeechSynthesisUtterance(descr);
+      window.speechSynthesis.speak(msg);
+    },
     cartAdd() {
       if (this.product.sizes && !this.size) {
         this.showSizeRequiredMessage = true;
@@ -105,6 +107,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.greetClass{
+  cursor: pointer;
+}
+
 .item-contain {
   margin-left: 8%;
   width: 80%;
